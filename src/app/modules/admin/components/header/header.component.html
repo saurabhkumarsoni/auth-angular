@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand navbar-dark px-2">
+    <div class="side-nav-button p-2 me-3 text-light" (click)="toggleSideNav()">
+        <i class="fa-solid fa-bars"></i>
+    </div>
+    <a class="navbar-brand px-4 logo" href="#"><img src="../../../../assets/images/logo.png" /></a>
+    <div class="navbar-collapse">
+        <ul class="navbar-nav me-auto">
+            <li>
+                <div ngbDropdown class="d-inline-block mx-3 px-3">
+                    <a class="text-decoration-none text-light" id="dropdownBasic1" ngbDropdownToggle>
+                        Toggle dropdown
+                    </a>
+                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-menu dropdown-menu-dark">
+                        <button ngbDropdownItem>Action - 1</button>
+                        <button ngbDropdownItem>Another Action</button>
+                        <button ngbDropdownItem>Something else is here</button>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div ngbDropdown class="d-inline-block mx-3 px-3">
+                    <a class="text-decoration-none text-light" id="dropdownBasic1" ngbDropdownToggle>
+                        Toggle dropdown
+                    </a>
+                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                        <button ngbDropdownItem>Action - 1</button>
+                        <button ngbDropdownItem>Another Action</button>
+                        <button ngbDropdownItem>Something else is here</button>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- <form class="d-flex me-5">
+        <input type="search" placeholder="search" class="form-control me-2"/>
+        <button class="btn btn-outline-light" type="submit">Search</button>
+    </form> -->
+
+
+    <div class="navbar-text">
+        <app-profile [user]="user"></app-profile>
+      </div>
+    
+    
+</nav>
+
+
+<!--  -->
