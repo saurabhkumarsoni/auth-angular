@@ -86,6 +86,7 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
+            "codeCoverage": true,
             "main": "src/test.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
@@ -100,8 +101,21 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "Auth-Angular:build:production",
+            "firebaseProject": "auth-angular-50dba",
+            "firebaseHostingSite": "auth-angular-50dba"
+          }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "d9d8940f-cfb1-4d72-964c-21990ea6dac4"
   }
 }

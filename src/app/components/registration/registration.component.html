@@ -1,0 +1,82 @@
+<div class="login-page bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1">
+                <h3 class="mb-3">Sign up Now</h3>
+                <div class="bg-white shadow rounded">
+                    <div class="row">
+                        <div class="col-md-7 pe-0">
+                            <div class="form-left h-100 py-5 px-5">
+                                <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" class="row g-4">
+                                    <div class="col-12">
+                                        <label>Username<span class="text-danger">*</span></label>
+                                        <div class="input-group">
+                                            <div class="input-group-text"><i class="fa fa-user"></i></div>
+                                            <input type="text" formControlName="username" class="form-control" placeholder="Enter Username">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <label>Email<span class="text-danger">*</span></label>
+                                        <div class="input-group">
+                                            <div class="input-group-text"><i class="fa-sharp fa-solid fa-envelope"></i></div>
+                                            <input type="email" formControlName="email" class="form-control" placeholder="Enter Email">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <label>Mobile<span class="text-danger">*</span></label>
+                                        <div class="input-group">
+                                            <div class="input-group-text"><i class="fa-solid fa-mobile-retro"></i></div>
+                                            <input type="text" formControlName="number" class="form-control" placeholder="Enter Mobile Number">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <label>Password<span class="text-danger">*</span></label>
+                                        <div class="input-group">
+                                            <div class="input-group-text"><i class="fa fa-lock"></i></div>
+                                            <input type="password" formControlName="password" class="form-control" placeholder="Enter Password">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <label>Confirm Password<span class="text-danger">*</span></label>
+                                        <div class="input-group">
+                                            <div class="input-group-text"><i class="fa fa-lock"></i></div>
+                                            <input type="password" class="form-control" formControlName="confirmPassword" placeholder="Enter Password">
+                                        </div>
+                                    </div>
+
+                                    
+
+                                    
+
+                                    <div class="col-12">
+                                        <div class="d-flex justify-content-space-between">
+                                            <div class="col-sm-6 mt-4">
+                                                <span>Have a member?</span>
+                                                <a routerLink="../login" class="text-primary"> Login</a>
+                                               </div>
+                                               <div class="col-sm-6">
+                                                <button type="submit" class="btn btn-primary px-4 float-end mt-4">Register</button>
+        
+                                               </div>
+                                        </div>
+                                       
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-md-5 ps-0 d-none d-md-block">
+                            <div class="form-right h-100 bg-primary text-white text-center">
+                                <img src="https://static2.tgstat.ru/channels/_0/31/31e8c5804c2c7800a68a25f34850bb6c.jpg"/>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

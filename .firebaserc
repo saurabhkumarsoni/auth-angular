@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "auth-angular-50dba": {
+      "hosting": {
+        "Auth-Angular": [
+          "auth-angular-50dba"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "auth-angular-50dba"
+  }
+}

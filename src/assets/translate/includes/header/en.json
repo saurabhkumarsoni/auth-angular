@@ -1,0 +1,33 @@
+{
+    "header" :{
+        "menu" : [
+            {
+               "text": "Home",
+               "link" : "home"
+            },
+            {
+               "text": "Smart",
+               "link" : "smart"
+            },
+            {
+               "text": "Gallery",
+               "link" : "gallery"
+            },
+            {
+               "text": "Products",
+               "link" : "products"
+            },
+            {
+               "text": "Services",
+               "link" : "services"
+            },
+            {
+               "text": "Contact Us",
+               "link" : "contact"
+            },
+            {  "text":"Manage User",
+               "link" : "manage-user"
+            }
+        ]
+    }
+}
