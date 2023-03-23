@@ -53,3 +53,12 @@
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
 }
+
+
+
+.ng-select.ng-select-single .ng-select-container {
+    height: 45px !important;
+    border-radius: 5px !important;
+    /* border: none; */
+    border: 1px solid #e5dfe4 !important;
+}

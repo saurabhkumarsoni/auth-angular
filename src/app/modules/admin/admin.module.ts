@@ -14,7 +14,12 @@ import { ProductsComponent } from './components/products/products.component';
 import { HighlightDirective } from 'src/app/appDirective/highlight.directive';
 import { DropdownDirective } from 'src/app/appDirective/dropdown.directive';
 import { AdminProfileComponent } from './components/admin-profile/admin-profile.component';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UserDetailsComponent } from './components/user-details/user-details.component';
+import { NgChartsModule } from 'ng2-charts';
+import { DataService } from './service/data.service';
+import { PiechartsComponent } from './components/analytics/piecharts/piecharts.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -28,13 +33,20 @@ import { AdminProfileComponent } from './components/admin-profile/admin-profile.
     ProductsComponent,
     HighlightDirective,
     DropdownDirective,
-    AdminProfileComponent
+    AdminProfileComponent,
+    UserDetailsComponent,
+    PiechartsComponent
     
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
-    NgbDropdownModule
-  ]
+    NgbDropdownModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgChartsModule,
+    NgSelectModule
+  ],
+  providers: [DataService]
 })
 export class AdminModule { }

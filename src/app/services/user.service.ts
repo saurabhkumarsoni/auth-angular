@@ -13,16 +13,15 @@ export class UserService {
   constructor(private http: HttpClient, private authService: AuthService) { }
 
 
-  getData(){
+  getUserList(){
     return this.authService.user.pipe(
       take(1),
       exhaustMap(user =>{
-        return this.http.get(`${this.api}+empData.json`, {
+        return this.http.get(`${this.api}empData.json`, {
           params: new HttpParams().set('auth', user?.token)
         })
        }),
        map(resData =>{
-        console.log('resData', resData)
         const userArray = [];
         for(const key in resData){
           if(resData.hasOwnProperty(key)){

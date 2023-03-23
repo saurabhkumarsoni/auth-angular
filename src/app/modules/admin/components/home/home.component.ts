@@ -8,12 +8,18 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  usersList: any;
+  userDetails: any
 
   constructor(private authService: AuthService, private userService: UserService) { }
 
   ngOnInit(): void {
-    this.userService.getData().subscribe(res =>{
-      console.log(res);
+    this.userService.getUserList().subscribe(res =>{
+      this.usersList = res;      
+    })
+
+    this.authService.userInfo.subscribe(res =>{
+      this.userDetails = res;
     })
   }
 

@@ -13,7 +13,7 @@ export class AdminDashboardComponent implements OnInit {
 
 
 
-  constructor(private authService: AuthService) { }
+  constructor() { }
 
   ngOnInit() {
     

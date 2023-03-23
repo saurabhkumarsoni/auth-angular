@@ -7,11 +7,19 @@ import { AdminProfileComponent } from './admin-profile/admin-profile.component';
 import { AnalyticsComponent } from './analytics/analytics.component';
 import { HomeComponent } from './home/home.component';
 import { ProductsComponent } from './products/products.component';
+import { UserDetailsComponent } from './user-details/user-details.component';
 
 const routes: Routes = [
     { path: '', component: AdminDashboardComponent,
+    // canActivate: [AuthGuard],
       children: [
         {path: 'home', component: HomeComponent},
+        {path: 'home/user-detail/:id', component: UserDetailsComponent, 
+          children: [ 
+            {path: '', component: AnalyticsComponent},
+            {path: 'account-setting', component: AnalyticsComponent}
+          ]},
+
         {path: 'analytics', component: AnalyticsComponent},
         {path: 'products', component: ProductsComponent},
         {path: 'profile', component: AdminProfileComponent},

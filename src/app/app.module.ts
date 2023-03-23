@@ -14,7 +14,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 
-import { LoadingBarModule } from '@ngx-loading-bar/core';
+import { LoadingBarModule, LOADING_BAR_CONFIG } from '@ngx-loading-bar/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
@@ -23,6 +23,10 @@ import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth.guard';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AuthInterceptor } from './auth/auth.interceptor';
+import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
+import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 
 @NgModule({
   declarations: [
@@ -41,6 +45,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
     AppRoutingModule,
     NgbModule,
     LoadingBarModule,
+    LoadingBarHttpClientModule,
+    LoadingBarRouterModule,
     TranslateModule.forRoot(),
     NgbDropdownModule,
     FontAwesomeModule,
@@ -51,11 +57,17 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),
     provideFirestore(() => getFirestore()),
-    FontAwesomeModule
+    FontAwesomeModule,
+    BrowserAnimationsModule,
+    
+    
+    
   ],
   providers: [AuthService, AuthGuard,
     // { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    { provide: LOADING_BAR_CONFIG, useValue: { latencyThreshold: 10 } }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+
 })
 export class AppModule { }

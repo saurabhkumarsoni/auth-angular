@@ -1,7 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 
 /* Importing Bootstrap SCSS file. */
-@import '~bootstrap/scss/bootstrap';
+
+body{
+    background: #F1F3FA;
+}
 
 app-header{
     position: fixed;
@@ -20,7 +23,7 @@ main{
 
 
 app-side-nav{
-    position: absolute;
+    position: fixed;
     left: 0rem;
     width: 60px;
     height: calc(100vh - 4rem);
@@ -51,3 +54,5 @@ app-side-nav{
     left: 250px;
    
 }
+
+@import "~@ng-select/ng-select/themes/default.theme.css";

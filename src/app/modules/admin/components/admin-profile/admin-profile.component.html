@@ -1,87 +1,112 @@
 <div class="container">
     <div class="row">
-            <div class="col-12">
-                <!-- Page title -->
-                <div class="my-5">
-                    <h3>My Profile</h3>
-                    <hr>
-                </div>
-                <!-- Form START -->
-                <form class="file-upload">
-                    <div class="row mb-5 gx-5">
-                        <!-- Contact detail -->
-                        <div class="col-xxl-8 mb-5 mb-xxl-0">
-                            <div class="bg-secondary-soft px-4 py-5 rounded">
-                                <div class="row g-3">
-                                    <h4 class="mb-4 mt-0">Contact detail</h4>
-                                    <!-- First Name -->
-                                    <div class="col-md-6">
-                                        <label class="form-label">First Name *</label>
-                                        <span *ngIf="!profileEditMode">Saurabh</span>
-                                        <input *ngIf="profileEditMode" type="text" class="form-control" placeholder="" aria-label="First name" value="Scaralet">
+        <div class="col-12">
+            <div class="my-5">
+                <h3>My Profile</h3>
+                <hr>
+            </div>
+            <form class="file-upload" [formGroup]="adminProfile" (ngSubmit)="onSubmit()">
+                <div class="row mb-5 gx-5">
+                    <div class="col-xxl-8 mb-5 mb-xxl-0">
+                        <div class="bg-secondary-soft px-4 py-5 rounded">
+                            <div class="row g-3">
+                                <h4 class="mb-4 mt-0">Contact detail</h4>
+                                <div class="col-md-6">
+                                    <label class="form-label">Name <span class="text-danger">*</span></label>
+                                    <input formControlName="name" type="text" class="form-control" placeholder=""
+                                        aria-label="First name" value="Scaralet">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Mobile number <span class="text-danger">*</span></label>
+                                    <input formControlName="mobile" type="text" class="form-control" placeholder=""
+                                        aria-label="Phone number" value="+91 9852 8855 252">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="inputEmail4" class="form-label">Email <span
+                                            class="text-danger">*</span></label>
+                                    <input formControlName="email" type="email" class="form-control" id="inputEmail4"
+                                        value="example@homerealty.com">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Designation <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" formControlName="designation" placeholder=""
+                                        aria-label="Phone number" value="Scaralet D">
+                                </div>
+
+
+                            </div> <!-- Row END -->
+                            <div formGroupName="address" class="d-flex flex-wrap mt-3">
+
+                                <div class="col-md-6">
+                                    <label class="form-label">Country <span class="text-danger">*</span></label>
+                                    <div class="form-field pe-3">
+                                        <ng-select required formControlName="country" placeholder="Country">
+                                            <ng-option *ngFor="let country of countries" [value]="country.shortName">
+                                                {{ country.name }}
+                                            </ng-option>
+                                        </ng-select>
                                     </div>
-                                    <!-- Last name -->
-                                    <div class="col-md-6">
-                                        <label class="form-label">Last Name *</label>
-                                        <span *ngIf="!profileEditMode">Kumar</span>
-                                        <input *ngIf="profileEditMode"type="text" class="form-control" placeholder="" aria-label="Last name" value="Doe">
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label">State <span class="text-danger">*</span></label>
+                                    <div class="form-field">
+                                        <ng-select required formControlName="state"
+                                            placeholder="State / County Province" [addTag]="true">
+                                            <ng-option *ngFor="let state of states" [value]="state">
+                                                {{ state }}
+                                            </ng-option>
+                                        </ng-select>
                                     </div>
-                                    <!-- Phone number -->
-                                    <div class="col-md-6">
-                                        <label class="form-label">Phone number *</label>
-                                        <span *ngIf="!profileEditMode">(333) 000 555</span>
-                                        <input *ngIf="profileEditMode"type="text" class="form-control" placeholder="" aria-label="Phone number" value="(333) 000 555">
+                                </div>
+
+                                <div class="col-md-6 mt-3">
+                                    <label class="form-label">City <span class="text-danger">*</span></label>
+                                    <div class="form-field">
+                                        <ng-select required formControlName="city" placeholder="City" [addTag]="true">
+                                            <ng-option *ngFor="let city of cities" [value]="city">
+                                                {{ city }}
+                                            </ng-option>
+                                        </ng-select>
                                     </div>
-                                    <!-- Mobile number -->
-                                    <div class="col-md-6">
-                                        <label class="form-label">Mobile number *</label>
-                                        <span *ngIf="!profileEditMode">+91 9852 8855 252</span>
-                                        <input *ngIf="profileEditMode"type="text" class="form-control" placeholder="" aria-label="Phone number" value="+91 9852 8855 252">
-                                    </div>
-                                    <!-- Email -->
-                                    <div class="col-md-6">
-                                        <label for="inputEmail4" class="form-label">Email *</label>
-                                        <span *ngIf="!profileEditMode">saurabh.soni119@gmail.com</span>
-                                        <input *ngIf="profileEditMode"type="email" class="form-control" id="inputEmail4" value="example@homerealty.com">
-                                    </div>
-                                    <!-- Skype -->
-                                    <div class="col-md-6">
-                                        <label class="form-label">Skype *</label>
-                                        <span *ngIf="!profileEditMode">Scaralet D</span>
-                                        <input *ngIf="profileEditMode"type="text" class="form-control" placeholder="" aria-label="Phone number" value="Scaralet D">
-                                    </div>
-                                </div> <!-- Row END -->
-                            </div>
-                        </div>
-                        <!-- Upload profile -->
-                        <div class="col-xxl-4">
-                            <div class="bg-secondary-soft px-4 py-5 rounded">
-                                <div class="row g-3">
-                                    <h4 class="mb-4 mt-0" *ngIf="profileEditMode">Upload your profile photo</h4>
-                                    <div class="text-center">
-                                        <!-- Image upload -->
-                                        <div class="square position-relative display-2 mb-3">
-                                           <img src="http://azimuth.themeseason.com/assets/img/users/user.jpg"/>
-                                        </div>
-                                        <!-- Button -->
-                                        <input *ngIf="profileEditMode"type="file" id="customFile" name="file" hidden="">
-                                        <label  *ngIf="profileEditMode"class="btn btn-success-soft btn-block" for="customFile">Upload</label>
-                                        <button *ngIf="profileEditMode" type="button" class="btn btn-danger-soft">Remove</button>
-                                        <!-- Content -->
-                                        <p *ngIf="profileEditMode" class="text-muted mt-3 mb-0"><span class="me-1">Note:</span>Minimum size 300px x 300px</p>
-                                    </div>
+                                </div>
+
+                                <div class="col-md-6 p-2 mt-3">
+                                    <label>Postal Code <span class="text-danger">*</span></label>
+                                    <input formControlName="postalCode" type="text" class="form-control">
                                 </div>
                             </div>
                         </div>
-                    </div> <!-- Row END -->
-    
-                
-                    <!-- button -->
-                    <div class="gap-3 d-md-flex justify-content-md-end text-center">
-                        <button *ngIf="profileEditMode" type="button" class="btn btn-outline-danger btn-lg">Delete profile</button>
-                        <button *ngIf="profileEditMode" type="button" class="btn btn-outline-primary btn-lg">Update profile</button>
                     </div>
-                </form> <!-- Form END -->
-            </div>
+                    <!-- Upload profile -->
+                    <div class="col-xxl-4">
+                        <div class="bg-secondary-soft px-4 py-5 rounded">
+                            <div class="row g-3">
+                                <h4 class="mb-4 mt-0">Upload your profile photo</h4>
+                                <div class="text-center">
+                                    <!-- Image upload -->
+                                    <div class="square position-relative display-2 mb-3">
+                                        <img src="{{userDetails?.photoUrl}}" width="100%" />
+                                    </div>
+                                    <!-- Button -->
+                                    <input type="file" accept="image/*" formControlName="photoUrl" id="customFile"
+                                        name="file" hidden="">
+                                    <label class="btn btn-success-soft btn-block" for="customFile">Upload</label>
+                                    <button type="button" class="btn btn-danger-soft">Remove</button>
+                                    <!-- Content -->
+                                    <p class="text-muted mt-3 mb-0"><span class="me-1">Note:</span>Minimum size 300px x
+                                        300px</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- Row END -->
+                <!-- button -->
+                <div class="gap-3 d-md-flex justify-content-md-end text-center">
+                    <button type="button" class="btn btn-outline-danger btn-lg">Delete profile</button>
+                    <button type="submit" class="btn btn-outline-primary btn-lg">Update profile</button>
+                </div>
+            </form> <!-- Form END -->
         </div>
-        </div>
+    </div>
+</div>

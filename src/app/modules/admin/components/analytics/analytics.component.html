@@ -1,1 +1,13 @@
-<p>analytics works!</p>
+<div>
+    <h3> Personal Growth</h3>
+    <div style="display: block">
+      <canvas baseChart
+              [datasets]="barChartData"
+              [labels]="barChartLabels"
+              [options]="barChartOptions"
+              [legend]="barChartLegend"
+             ></canvas>
+    </div>
+  </div>
+
+<app-piecharts></app-piecharts>

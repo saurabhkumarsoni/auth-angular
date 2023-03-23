@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FirestoreError } from '@angular/fire/firestore';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Obj } from '@popperjs/core';
 import { Observable } from 'rxjs';
 import { AuthResponse } from '../../appInterface/auth-response-interface';
 import { ErrorMessage } from '../../appInterface/error.response.interface';
